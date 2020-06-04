@@ -115,20 +115,17 @@ class Select2 extends InputWidget
 	{
 		$view = $this->getView();
 		$selector = '#'.$this->options['id'];
-		$settings = Json::encode($this->pluginOptions);
 
 		// Register asset
 		$asset = Select2Asset::register($view);
 
 		if ($this->language !== null) {
 			$asset->language = $this->language;
+			$this->pluginOptions['language'] = $this->language;
 		}
 
-		Select2Asset::register($view);
-		if ($this->bootstrap === true)
-			Select2BootstrapAsset::register($view);
-
 		// Init widget
+		$settings = Json::encode($this->pluginOptions);
 		$view->registerJs("jQuery('$selector').select2($settings);", $view::POS_READY, self::INLINE_JS_KEY.$this->options['id']);
 
 		// Register events

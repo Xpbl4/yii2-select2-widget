@@ -17,20 +17,20 @@ class Select2Asset extends AssetBundle
 	/**
 	 * @inheritdoc
 	 */
-	public $sourcePath = '@bower/select2';
+	public $sourcePath = '@bower/select2/dist';
 
 	/**
 	 * @inheritdoc
 	 */
 	public $js = [
-		'select2.min.js'
+		'js/select2.js'
 	];
 
 	/**
 	 * @inheritdoc
 	 */
 	public $css = [
-		'select2.css',
+		'css/select2.css',
 	];
 
 	/**
@@ -46,7 +46,7 @@ class Select2Asset extends AssetBundle
 	public function registerAssetFiles($view)
 	{
 		if ($this->language !== null) {
-			$this->js[] = 'select2_locale_'.$this->language.'.js';
+			$this->js[] = 'js/i18n/'.$this->language.'.js';
 		}
 
 		parent::registerAssetFiles($view);
