@@ -1,6 +1,6 @@
 <?php
 
-namespace xpbl4\widgets;
+namespace xpbl4\select2;
 
 use Yii;
 use yii\helpers\Html;
