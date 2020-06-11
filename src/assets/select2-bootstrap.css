@@ -61,7 +61,6 @@
 }
 .select2-container--default .select2-search--inline {
 	margin-top: 6px;
-	display: none;
 }
 .select2-container--default .select2-search--inline .select2-search__field {
 	width: auto !important;
