@@ -97,8 +97,12 @@ class Select2 extends InputWidget
 
 		// Set placeholder
 		$_placeholder = ArrayHelper::remove($this->options, 'prompt');
+		if (!is_null($_placeholder) && !key_exists('allowClear', $this->pluginOptions)) $this->pluginOptions['allowClear'] = true;
+
 		$_placeholder = ArrayHelper::remove($this->options, 'placeholder', $_placeholder);
 		$_placeholder = ArrayHelper::remove($this->pluginOptions, 'placeholder', $_placeholder);
+
+		if ($_placeholder === true && $this->hasModel()) $_placeholder = $this->model->getAttributeLabel($this->attribute);
 		if (!is_null($_placeholder)) {
 			$this->pluginOptions['placeholder'] = $_placeholder;
 			if (empty($this->options['multiple'])) $this->options['prompt'] = $_placeholder;
@@ -174,5 +178,10 @@ class Select2 extends InputWidget
 				$view->registerJs($js, $view::POS_READY, self::INLINE_JS_KEY.'events/'.$this->options['id']);
 			}
 		}
+	}
+	
+	public static function field($model, $attribute, $options)
+	{
+		return self::widget(ArrayHelper::merge(['model' => $model, 'attribute' => $attribute], $options));
 	}
 }
