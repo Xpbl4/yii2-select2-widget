@@ -29,7 +29,7 @@ to the require section of your `composer.json` file.
 Once the extension is installed, simply use it in your code by:
 
 ```php
-use xpbl4\widgets\Select2;
+use xpbl4\select\Select2;
 
 echo $form->field($model, 'field')->widget(Select2::className(), [
     'items' => [

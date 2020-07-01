@@ -3,6 +3,7 @@
 namespace xpbl4\select2;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\JsExpression;
@@ -63,7 +64,7 @@ class Select2 extends InputWidget
 	/**
 	 * @var boolean Whatever to use bootstrap CSS or not
 	 */
-	public $bootstrap = false;
+	public $bootstrap = true;
 
 	/**
 	 * Events array. Array keys are the events name, and array values are the events callbacks.
@@ -92,6 +93,19 @@ class Select2 extends InputWidget
 		// Set language
 		if ($this->language === null && ($language = Yii::$app->language) !== 'en-US') {
 			$this->language = substr($language, 0, 2);
+		}
+
+		// Set placeholder
+		$_placeholder = ArrayHelper::remove($this->options, 'prompt');
+		if (!is_null($_placeholder) && !key_exists('allowClear', $this->pluginOptions)) $this->pluginOptions['allowClear'] = true;
+
+		$_placeholder = ArrayHelper::remove($this->options, 'placeholder', $_placeholder);
+		$_placeholder = ArrayHelper::remove($this->pluginOptions, 'placeholder', $_placeholder);
+
+		if ($_placeholder === true && $this->hasModel()) $_placeholder = $this->model->getAttributeLabel($this->attribute);
+		if (!is_null($_placeholder)) {
+			$this->pluginOptions['placeholder'] = $_placeholder;
+			if (empty($this->options['multiple'])) $this->options['prompt'] = $_placeholder;
 		}
 	}
 
@@ -123,6 +137,8 @@ class Select2 extends InputWidget
 			$asset->language = $this->language;
 			$this->pluginOptions['language'] = $this->language;
 		}
+
+		Select2WidgetAsset::register($view);
 
 		// Init widget
 		$settings = Json::encode($this->pluginOptions);
@@ -162,5 +178,10 @@ class Select2 extends InputWidget
 				$view->registerJs($js, $view::POS_READY, self::INLINE_JS_KEY.'events/'.$this->options['id']);
 			}
 		}
+	}
+	
+	public static function field($model, $attribute, $options)
+	{
+		return self::widget(ArrayHelper::merge(['model' => $model, 'attribute' => $attribute], $options));
 	}
 }
