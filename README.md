@@ -44,7 +44,7 @@ echo $form->field($model, 'field')->widget(Select2::className(), [
     'pluginOptions' => [
         'width' => '100%',
     ],
-    'events' => [
+    'pluginEvents' => [
         'select2:open' => 'function (e) { log("select2:open", e); }',
         'select2:close' => new JsExpression('function (e) { log("select2:close", e); }')
         ...

@@ -28,7 +28,7 @@ use yii\widgets\InputWidget;
  *     'pluginOptions' => [
  *         'width' => '100%',
  *     ],
- *     'events' => [
+ *     'pluginEvents' => [
  *         'select2:open' => 'function (e) { log("select2:open", e); }',
  *         'select2:close' => new JsExpression('function (e) { log("select2:close", e); }')
  *         'select2:select' => [
@@ -80,7 +80,7 @@ class Select2 extends InputWidget
 	 * ```
 	 * @var array Plugin events
 	 */
-	public $events = [];
+	public $pluginEvents = [];
 
 	/**
 	 * @inheritdoc
@@ -140,9 +140,9 @@ class Select2 extends InputWidget
 		$view = $this->getView();
 		$selector = '#'.$this->options['id'];
 
-		if (!empty($this->events)) {
+		if (!empty($this->pluginEvents)) {
 			$js = [];
-			foreach ($this->events as $event => $callback) {
+			foreach ($this->pluginEvents as $event => $callback) {
 				if (is_array($callback)) {
 					foreach ($callback as $function) {
 						if (!$function instanceof JsExpression) {
