@@ -137,6 +137,7 @@ class Select2 extends InputWidget
 			$asset->language = $this->language;
 			$this->pluginOptions['language'] = $this->language;
 		}
+		if (empty($this->pluginOptions['width'])) $this->pluginOptions['width'] = false;
 
 		Select2WidgetAsset::register($view);
 
