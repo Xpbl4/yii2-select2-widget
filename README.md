@@ -1,4 +1,4 @@
-# Yii2 select2 widget.
+# Yii2 Select2 widget
 
 [![Latest Version](https://img.shields.io/github/tag/Xpbl4/yii2-select2-widget.svg?style=flat-square&label=release)](https://github.com/Xpbl4/yii2-select2-widget/releases)
 [![Software License](https://img.shields.io/badge/license-BSD-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -6,7 +6,7 @@
 
 Select2 widget is a wrapper of [Select2](https://select2.org/) for Yii 2 framework.
 
-## Install
+## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 

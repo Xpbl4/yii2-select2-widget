@@ -1,17 +1,8 @@
 {
   "name": "xpbl4/yii2-select2-widget",
-  "description": "The select2 widget for Yii framework.",
+  "description": "The Select2 widget for Yii framework.",
   "type": "yii2-extension",
-  "keywords": [
-    "yii",
-    "extension",
-    "widget",
-    "yii2",
-    "yii 2",
-    "select2",
-    "select 2",
-    "select"
-  ],
+  "keywords": ["yii2","extension","widget","select","select2"],
   "homepage": "https://github.com/Xpbl4/yii2-select2-widget",
   "license": "BSD-3-Clause",
   "authors": [
@@ -26,8 +17,14 @@
     "issues": "https://github.com/Xpbl4/yii2-select2-widget/issues?state=open",
     "source": "https://github.com/Xpbl4/yii2-select2-widget"
   },
+  "repositories":[
+    {
+      "type": "git",
+      "url": "https://github.com/Xpbl4/yii2-select2-widget.git"
+    }
+  ],
   "require": {
-    "yiisoft/yii2": "*",
+    "yiisoft/yii2": "~2.0.0",
     "bower-asset/select2": "4.*"
   },
   "require-dev": {

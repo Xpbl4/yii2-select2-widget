@@ -35,7 +35,6 @@ $.fn.select2.amd.require(
 				this._tabindex = this.$element.attr('tabindex');
 			}
 
-			console.log(this.$element.attr('class'));
 			if (this.$element.attr('class') != null) {
 				var className = this.$element.attr('class');
 				$selection.addClass(className);
