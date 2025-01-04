@@ -151,15 +151,16 @@
 .form-group-sm .select2-container--default .select2-selection,
 .input-group-sm .select2-container--default .select2-selection,
 .select2-container--default .select2-selection.input-sm {
-	padding: 5px 10px;
-	font-size: 12px;
 	height: 30px;
+	font-size: 12px;
+	padding: 5px 10px;
 }
 .form-group-sm .select2-container--default .select2-selection--multiple,
 .input-group-sm .select2-container--default .select2-selection--multiple,
 .select2-container--default .select2-selection--multiple.input-sm {
 	height: auto;
 	min-height: 30px;
+	padding: 5px;
 }
 .form-group-sm .select2-container--default .select2-selection--single .select2-selection__arrow,
 .input-group-sm .select2-container--default .select2-selection--single .select2-selection__arrow,
